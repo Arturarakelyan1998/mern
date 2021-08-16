@@ -10,10 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.21.1",
     "express": "^4.17.1",
     "mongoose": "^5.13.7",
-    "node-sass": "^6.0.1",
     "nodemon": "^2.0.12"
   }
 }
