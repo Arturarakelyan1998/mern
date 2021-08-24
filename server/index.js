@@ -4,7 +4,9 @@ const mongoose = require('mongoose')
 
 const app = express()
 const PORT = process.env.PORT || 5000
-app.use(express.json({extended:true}))
+
+app.use(express.json({extended:true})) // json ֆայլը հասկանալու համար
+
 app.use('/api/auth',require('./routes/auth.routs'))
 
 async function start() {
