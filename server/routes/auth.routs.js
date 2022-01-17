@@ -7,6 +7,8 @@ const jwt = require('jsonwebtoken');
 
 router.post('/registration',
     [
+        body('firstname','Firstname can not be empty').notEmpty(),
+        body('lastname','Lastname can not be empty').notEmpty(),
         body('email','Not correct email').isEmail(),
         body('password','Not correct password').isLength({min:6}),
     ],
@@ -19,7 +21,7 @@ router.post('/registration',
                 message:'not correct data upon registration'
             })
         }
-        const {email, password}= req.body
+        const {firstname,lastname,email, password}= req.body
         const  isUsed=await User.findOne({email})
         if(isUsed){
            return  res.status(300).json({message:'This email already registered'})
@@ -27,6 +29,7 @@ router.post('/registration',
         const hashedPassword =await bcrypt.hash(password,12)
 
         const user = new User({
+            firstname,lastname,
             email,password:hashedPassword
         })
         await user.save()

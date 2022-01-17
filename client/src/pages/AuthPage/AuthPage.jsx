@@ -77,6 +77,12 @@ const AuthPage = () => {
 
                             <div className="row">
                                 <div className="input-filed col s12">
+                                    <input type="text" name="firstname"  placeholder="firstname" onChange={changeHandler}/>
+                                </div>
+                                <div className="input-filed col s12">
+                                    <input type="text" name="lastname"  placeholder="lastname" onChange={changeHandler}/>
+                                </div>
+                                <div className="input-filed col s12">
                                     <input type="email" name="email"  placeholder="email" onChange={changeHandler}/>
                                 </div>
                                 <div className="input-filed col s12">
