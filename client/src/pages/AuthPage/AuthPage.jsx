@@ -70,7 +70,7 @@ const AuthPage = () => {
                         </form>
                         </Route>
 
-                        <Route path="/Registration">
+                        <Route path="/registration">
                         <h3> Registration</h3>
                         <form className="form form-login" onSubmit={e => e.preventDefault()}>
 

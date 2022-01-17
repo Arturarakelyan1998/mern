@@ -2,7 +2,7 @@ const {Router}=require('express')
 const router = Router()
 const User = require('../models/User')
 const{body, validationResult}= require('express-validator')
-const bcr = require('bcryptjs')
+const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken');
 
 router.post('/registration',
@@ -24,7 +24,7 @@ router.post('/registration',
         if(isUsed){
            return  res.status(300).json({message:'This email already registered'})
         }
-        const hashedPassword =await bcr.hash(password,12)
+        const hashedPassword =await bcrypt.hash(password,12)
 
         const user = new User({
             email,password:hashedPassword
@@ -60,7 +60,7 @@ router.post('/login',
          {
              return res.status(400).json({message:'email is false '})
          }
-         const isMatch=bcr.compare(password,user.password)
+         const isMatch=bcrypt.compare(password,user.password)
         if(!isMatch){
             return res.status(400).json({message:'password is false '})
         }
