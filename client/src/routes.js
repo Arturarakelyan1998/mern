@@ -1,13 +1,13 @@
 import React from 'react'
 import {Switch,Route,Redirect} from 'react-router-dom'
-import MainPage from "./pages/MainPage/MainPage";
+import Index from "./pages/MainPage";
 import AuthPage from "./pages/AuthPage/AuthPage";
 
 export const useRoutes = (isLogin)=>{
     if(isLogin){
         return(
             <Switch>
-                <Route path="/" exact component={MainPage}/>
+                <Route path="/" exact component={Index}/>
                 <Redirect to="/"/>
             </Switch>
         )
