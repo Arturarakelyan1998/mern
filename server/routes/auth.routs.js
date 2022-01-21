@@ -1,16 +1,16 @@
 const {Router}=require('express')
 const router = Router()
 const User = require('../models/User')
-const{body, validationResult}= require('express-validator')
+const{check, validationResult}= require('express-validator')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken');
 
 router.post('/registration',
     [
-        body('firstname','Firstname can not be empty').notEmpty(),
-        body('lastname','Lastname can not be empty').notEmpty(),
-        body('email','Not correct email').isEmail(),
-        body('password','Not correct password').isLength({min:6}),
+        check('firstname','Firstname can not be empty').notEmpty(),
+        check('lastname','Lastname can not be empty').notEmpty(),
+        check('email','Not correct email').isEmail(),
+        check('password','Not correct password').isLength({min:6}),
     ],
     async (req,res)=>{
     try {
@@ -26,11 +26,13 @@ router.post('/registration',
         if(isUsed){
            return  res.status(300).json({message:'This email already registered'})
         }
-        const hashedPassword =await bcrypt.hash(password,12)
+        // const hashedPassword =await bcrypt.hash(password,12)
 
         const user = new User({
-            firstname,lastname,
-            email,password:hashedPassword
+            firstname,
+            lastname,
+            email,
+            password
         })
         await user.save()
 
@@ -43,8 +45,8 @@ router.post('/registration',
 
 router.post('/login',
     [
-        body('email','Not correct email').isEmail(),
-        body('password','Not correct password').exists(),
+        check('email','Not correct email').isEmail(),
+        check('password','Not correct password').exists(),
     ],
     async (req,res)=>{
     try {
@@ -63,8 +65,8 @@ router.post('/login',
          {
              return res.status(400).json({message:'email is false '})
          }
-         const isMatch=bcrypt.compare(password,user.password)
-        if(!isMatch){
+         // const isMatch=bcrypt.compare(password,user.password)
+        if(password!=user.password){
             return res.status(400).json({message:'password is false '})
         }
 
