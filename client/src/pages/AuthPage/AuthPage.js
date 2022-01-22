@@ -2,6 +2,8 @@ import React, {useState,useContext} from 'react'
 import {BrowserRouter,Link,Switch,Route } from 'react-router-dom'
 import axios from "axios";
 
+import { RiLockPasswordLine } from 'react-icons/ri';
+import { BiUser } from 'react-icons/bi';
 import './AuthPage.scss'
 import {AuthContext} from "../../context/AuthContext";
 
@@ -56,10 +58,12 @@ const AuthPage = () => {
                         <form className="form form-login" onSubmit={e=>e.preventDefault()}>
                             <div className="row">
                                 <div className="input-filed col s12">
-                                    <input type="email" name="email"  placeholder="email" onChange={changeHandler}/>
+                                    <BiUser />
+                                    <input type="email" name="email"  placeholder="Email" onChange={changeHandler}/>
                                 </div>
                                 <div className="input-filed col s12">
-                                    <input type="password" name="password"  placeholder="password" onChange={changeHandler}/>
+                                    <RiLockPasswordLine />
+                                    <input type="password" name="password"  placeholder="Password" onChange={changeHandler}/>
                                 </div>
                             </div>
                             <div className="row">
@@ -76,16 +80,16 @@ const AuthPage = () => {
 
                             <div className="row">
                                 <div className="input-filed col s12">
-                                    <input type="text" name="firstname"  placeholder="firstname" onChange={changeHandler}/>
+                                    <input type="text" name="firstname"  placeholder="Firstname" onChange={changeHandler}/>
                                 </div>
                                 <div className="input-filed col s12">
-                                    <input type="text" name="lastname"  placeholder="lastname" onChange={changeHandler}/>
+                                    <input type="text" name="lastname"  placeholder="Lastname" onChange={changeHandler}/>
                                 </div>
                                 <div className="input-filed col s12">
-                                    <input type="email" name="email"  placeholder="email" onChange={changeHandler}/>
+                                    <input type="email" name="email"  placeholder="Email" onChange={changeHandler}/>
                                 </div>
                                 <div className="input-filed col s12">
-                                    <input type="password" name="password"  placeholder="password" onChange={changeHandler}/>
+                                    <input type="password" name="password"  placeholder="Password" onChange={changeHandler}/>
                                 </div>
                             </div>
                             <div className="row">
