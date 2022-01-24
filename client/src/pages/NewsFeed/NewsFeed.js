@@ -14,10 +14,10 @@ const NewsFeed = () => {
 
         <div className="container" style={}>
             {posts && posts.map((post) => {
-                return <div key={post.id} >
+                return <div key={post.id}>
                     <div>{post.title}</div>
                     <img src={post.image} alt=""/>
-                    <div >{post.text}</div>
+                    <div>{post.text}</div>
                 </div>
             })}
         </div>
