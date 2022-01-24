@@ -12,7 +12,7 @@ const NewsFeed = () => {
 
     return (
 
-        <div className="container" style={}>
+        <div className="container" >
             {posts && posts.map((post) => {
                 return <div key={post.id}>
                     <div>{post.title}</div>
