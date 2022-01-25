@@ -5,8 +5,6 @@ import NewsFeed from "../NewsFeed/NewsFeed";
 const Index = () => {
     return (
         <div className={styles.container}>
-
-            <h1>Main Page</h1>
             <NewsFeed/>
         </div>
     );
