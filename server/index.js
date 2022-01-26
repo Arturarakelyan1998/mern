@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 5000
 app.use(express.json({extended:true})) // json ֆայլը հասկանալու համար
 
 app.use('/api/auth',require('./routes/auth.routs'))
+app.use('/api/user',require('./routes/user.routs'))
 
 async function start() {
     try {
