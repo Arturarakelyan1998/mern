@@ -1,0 +1,42 @@
+.profile{
+    max-width: 600px;
+    background: #B7B7B7;
+
+    .profile-item{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 50px 70px;
+        .profile-img{
+            width: 220px;
+            margin: 0 auto;
+            img{
+                width: 100%;
+            }
+        }
+    }
+    .profile-form{
+        padding: 50px 35px;
+
+        label{
+            color: white;
+            font-size: 16px;
+        }
+        input{
+            background: white;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            padding:0 15px;
+            margin: 10px 0;
+        }
+        input[type=submit]{
+            width: 100px;
+            padding: 10px 25px;
+            background: #15d015;
+            cursor:pointer;
+            color: white;
+        }
+    }
+}
+
