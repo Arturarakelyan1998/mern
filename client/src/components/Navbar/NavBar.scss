@@ -1,7 +1,15 @@
 .nav-bar {
   padding-left: 10px;
-
+  background: #B7B7B7;
   .brand-logo {
     font-size: 28px;
+  }
+  input[type=text]:not(.browser-default){
+    background: white;
+    max-width: 400px;
+    margin-left: 300px;
+    padding: 0 25px;
+    border-radius: 5px;
+    color: #282c34;
   }
 }
