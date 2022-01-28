@@ -1,9 +1,10 @@
 const {Schema, model,} = require('mongoose')
 
 const schema = new Schema({
-    UserId:{type:String},
-    Title: {type: String, required: true},
-    Description: {type: String, required: true},
+    // UserId:{type:String},
+    title: {type: String, required: true},
+    description: {type: String, required: true},
+    photo: {type:String},
 
 })
 

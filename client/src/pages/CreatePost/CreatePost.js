@@ -1,32 +1,63 @@
-import {useState} from "react";
+import { useState} from "react";
 import "./CreatePost.scss";
 import axios from "axios";
 
 
 const CreatePost = () => {
 
-    const [data, setData] = useState({
-        title: '',
-        description: '',
-        photo: null
-    })
-    const [success, setSuccess] = useState()
+    const [title,setTitle] = useState('');
+    const [description,setDescription] = useState('');
+    const [baseImg,setBaseImg] = useState('');
 
-    const changeHandler = (e) => {
-        setData({...data, [e.target.name]: e.target.value})
+    const onChangeTitle = (e) => {
+        setTitle(e.target.value);
+
+    }
+    const onChangeDescription = (e) => {
+        setDescription(e.target.value);
+
     }
 
-    const uploadHandler = async () => {
+    const uploadImg=async(e)=>{
+        const file=e.target.files[0];
+        const base64=await convertBase64(file)
+        setBaseImg(base64);
+        // console.log(base64)
+    }
+    const convertBase64 = (file) => {
+        return new Promise((resolve, reject) => {
+            const fileReader = new FileReader();
+            fileReader.readAsDataURL(file);
+
+            fileReader.onload = () => {
+                resolve(fileReader.result);
+            }
+
+            fileReader.onerror = (error) => {
+                reject(error);
+            }
+        })
+    }
+
+
+    const data= {
+        title: title,
+        description: description,
+        photo:baseImg,
+    }
+        const uploadHandler = async () => {
         try {
-            await axios.post('', {...data}, {
+            await axios.post('/api/post/create', {...data}, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
-            }).then(response =>
-                setSuccess(response.data.message)
+            }).then(response => {
+                    // console.log(response);
+                }
+
             )
         } catch (error) {
-            console.log(error, "Error ")
+            console.log(error, "Error1234654 ")
         }
     }
 
@@ -35,15 +66,16 @@ const CreatePost = () => {
             <h2>Your Post</h2>
             <label >
                 Post Title
-                <input type="text" onChange={changeHandler} className="titleInput"/>
+                <input type="text" onChange={onChangeTitle} className="titleInput"/>
             </label>
             <label >
                 Post Description
-                <input type="text" onChange={changeHandler} className= "descriptionInput"/>
+                <input type="text" onChange={onChangeDescription} className= "descriptionInput"/>
             </label>
             <label >
                 Post image
-                <input type="file" onChange={changeHandler}/>
+                <img src={baseImg} height='200px' width='200px'/>
+                <input type="file"  onChange={(e)=>{uploadImg(e);}}/>
             </label>
             <button onClick={uploadHandler}>Create Post</button>
         </div>

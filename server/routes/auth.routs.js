@@ -1,9 +1,10 @@
-const {Router} = require('express')
+const {Router,redirect} = require('express')
 const router = Router()
 const User = require('../models/User')
 const {check, validationResult} = require('express-validator')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken');
+const Post = require("../models/Post");
 
 router.post('/registration',
     [
@@ -83,7 +84,35 @@ router.post('/login',
         }
     });
 
+router.post('/create',
+    async (req, res) => {
 
+        try {
+
+            const post = new Post({
+                title:req.body.title,
+                description:req.body.description,
+                photo:req.body.photo,
+            })
+            await post.save()
+            res.redirect('/api/auth/')
+
+
+        } catch (error) {
+            console.log(error);
+        }
+
+
+    });
+router.get('/', function (req, res) {
+    Post.find({}, null, function (err, posts) {
+        if (err) {
+            res.status(500).send("Something went wrong!");
+        } else {
+            res.json(posts)
+        }
+    })
+});
 
 
 router.get('/date', function (req, res) {

@@ -9,6 +9,7 @@ app.use(express.json({extended:true})) // json ֆայլը հասկանալու �
 
 app.use('/api/auth',require('./routes/auth.routs'))
 app.use('/api/user',require('./routes/user.routs'))
+app.use('/api/post',require('./routes/auth.routs'))
 
 async function start() {
     try {
