@@ -1,11 +1,13 @@
 import React from 'react';
-import styles from './index.module.css';
 import NewsFeed from "../NewsFeed/NewsFeed";
 
 const Index = () => {
     return (
         <>
-            <div className={styles.container}>
+            <div style={{ display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                marginTop: "60px"}}>
                 <NewsFeed/>
             </div>
         </>
