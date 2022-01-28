@@ -6,18 +6,18 @@ import AuthPage from "./AuthPage/AuthPage";
 export const useRoutes = (isLogin)=>{
     if(isLogin){
         return(
-            <Switch>
+            <>
                 <Route path="/" exact component={Index}/>
-                <Redirect to="/"/>
-            </Switch>
+                {/*<Redirect to="/"/>*/}
+            </>
         )
     }
 
     return(
-        <Switch>
+        <>
             <Route path="/login" exact component={AuthPage}/>
-            <Redirect to="/"/>
-        </Switch>
+            {/*<Redirect to="/"/>*/}
+        </>
     )
 
 

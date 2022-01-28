@@ -51,8 +51,6 @@ const AuthPage = () => {
 
 
     return (
-        <BrowserRouter>
-            <Switch>
                 <>
                     <div className="container">
                         <div className="auth-page">
@@ -116,9 +114,6 @@ const AuthPage = () => {
                         </div>
                     </div>
                 </>
-            </Switch>
-        </BrowserRouter>
-
     )
 }
 
