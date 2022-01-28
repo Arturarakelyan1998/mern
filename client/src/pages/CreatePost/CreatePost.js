@@ -1,5 +1,5 @@
 import {useState} from "react";
-import "./CreatePost.css";
+import "./CreatePost.scss";
 import axios from "axios";
 
 
@@ -31,16 +31,21 @@ const CreatePost = () => {
     }
 
     return (
-        <div  className="container">
+        <div  className="post ant-card-hoverable">
             <h2>Your Post</h2>
-            <label > Post Title</label>
-            <input type="text" onChange={changeHandler} className="titleInput"/>
-            <label >Post Description</label>
-            <input type="text" onChange={changeHandler} className= "descriptionInput"/>
-            <label > Post image </label>
-            <input type="file" onChange={changeHandler}/>
+            <label >
+                Post Title
+                <input type="text" onChange={changeHandler} className="titleInput"/>
+            </label>
+            <label >
+                Post Description
+                <input type="text" onChange={changeHandler} className= "descriptionInput"/>
+            </label>
+            <label >
+                Post image
+                <input type="file" onChange={changeHandler}/>
+            </label>
             <button onClick={uploadHandler}>Create Post</button>
-
         </div>
     );
 }

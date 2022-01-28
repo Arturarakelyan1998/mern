@@ -1,13 +1,16 @@
 .profile{
     max-width: 600px;
     background: #B7B7B7;
-    margin: 40px auto;
+    margin: 0 auto;
+
     .profile-item{
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 50px 70px;
-
+        padding: 35px 50px 0px 17px;
+        background: #1890ff;
+        margin-top: 60px;
+        border-radius: 2px 2px 0 0;
         .profile-img{
             width: 220px;
             margin: 0 auto;
@@ -25,18 +28,20 @@
         }
         input{
             background: white;
-            border-radius: 5px;
             border: none;
             outline: none;
             padding:0 15px;
             margin: 10px 0;
+            border-bottom:1px solid black;
+            color: black;
         }
         input[type=submit]{
             width: 100px;
             padding: 10px 25px;
-            background: #15d015;
+            background: #001529;
             cursor:pointer;
             color: white;
+            border: none;
         }
     }
 }
