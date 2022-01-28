@@ -14,6 +14,7 @@ export default function Navbar(){
                         ?   <>
                                 <input type='text' placeholder='Search...'/>
                                 <ul id="nav-mobile" className="right hide-on-med-and-down">
+                                    <li><a href="/createPost">Create Post</a></li>
                                     <li><a href="/profile">Profile</a></li>
                                     <li><a href="/" onClick={logout}>Log Out</a></li>
                                 </ul>
