@@ -9,8 +9,9 @@ const usePosts = () => {
         setLoading(true)
         getPosts().then((data) => {
             setPosts(data)
+            setLoading(false)
         })
-        setLoading(false)
+
     }, [])
 
     return {posts, loading}

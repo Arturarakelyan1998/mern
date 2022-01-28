@@ -1,12 +1,13 @@
 .profile{
     max-width: 600px;
     background: #B7B7B7;
-
+    margin: 40px auto;
     .profile-item{
         display: flex;
         flex-direction: column;
         justify-content: center;
         padding: 50px 70px;
+
         .profile-img{
             width: 220px;
             margin: 0 auto;
