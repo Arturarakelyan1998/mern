@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 import {AuthContext} from "../../context/AuthContext";
+import {Link} from "react-router-dom";
 import ('./NavBar.scss')
 
 export default function Navbar(){
@@ -14,13 +15,13 @@ export default function Navbar(){
                         ?   <>
                                 <input type='text' placeholder='Search...'/>
                                 <ul id="nav-mobile" className="right hide-on-med-and-down">
-                                    <li><a href="/createPost">Create Post</a></li>
-                                    <li><a href="/profile">Profile</a></li>
-                                    <li><a href="/" onClick={logout}>Log Out</a></li>
+                                    <li><Link to="/createPost">Create Post</Link></li>
+                                    <li><Link to="/profile">Profile</Link></li>
+                                    <li><Link to="/login" onClick={logout}>Log Out</Link></li>
                                 </ul>
                             </>
                             :     <ul id="nav-mobile" className="right hide-on-med-and-down">
-                                <li><a href="/">Log In</a></li>
+                                <li><Link to="/login">Log In</Link></li>
                             </ul>
                     }
 

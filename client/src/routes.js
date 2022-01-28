@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import {Switch,Route,Redirect} from 'react-router-dom'
 import Index from "./pages/MainPage";
 import AuthPage from "./pages/AuthPage/AuthPage";
@@ -9,11 +9,15 @@ export const useRoutes = (isLogin)=>{
     if(isLogin){
         return(
             <Switch>
-                <Route path="/" exact component={Index}/>
-                {/*<Redirect to="/"/>*/}
-                <Route path="/profile" exact component={Profile}/>
-                {/*<Redirect to="/profile"/>*/}
-                <Route path="/createPost" exact component={CreatePost}/>
+                <Route exact  path="/" >
+                    <Index/>
+                </Route>
+                <Route path="/profile">
+                    <Profile/>
+                </Route>
+                <Route path="/createPost">
+                    <CreatePost/>
+                </Route>
             </Switch>
         );
     }
@@ -21,8 +25,9 @@ export const useRoutes = (isLogin)=>{
 else{
         return(
             <Switch>
-                <Route path="/login" exact component={AuthPage}/>
-                {/*<Redirect to="/login"/>*/}
+                <Route path="/login" >
+                    <AuthPage/>
+                </Route>
             </Switch>
         );
     }

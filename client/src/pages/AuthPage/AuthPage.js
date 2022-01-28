@@ -1,7 +1,6 @@
 import React, {useState, useContext} from 'react'
 import {BrowserRouter, Link, Switch, Route} from 'react-router-dom'
 import axios from "axios";
-
 import {RiLockPasswordLine} from 'react-icons/ri';
 import {BiUser} from 'react-icons/bi';
 import './AuthPage.scss'
@@ -10,13 +9,13 @@ import {AuthContext} from "../../context/AuthContext";
 const AuthPage = () => {
     const [success, setSuccess] = useState('')
 
-
     const [form, setForm] = useState({
         email: '',
         password: ''
     })
 
     const {login} = useContext(AuthContext)
+
     const changeHandler = (event) => {
         setForm({...form, [event.target.name]: event.target.value})
     }
