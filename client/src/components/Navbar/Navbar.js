@@ -33,22 +33,22 @@ export default function Navbar({children}) {
                     style={{ height: '100%', borderRight: 0 }}
                 >
                     <SubMenu key="sub1" icon={<UserOutlined />} title="Profile">
-                        <Menu.Item key="1">option1</Menu.Item>
-                        <Menu.Item key="2">option2</Menu.Item>
-                        <Menu.Item key="3">option3</Menu.Item>
-                        <Menu.Item key="4">option4</Menu.Item>
+                        <Menu.Item key="1">Friends</Menu.Item>
+                        <Menu.Item key="2">Photos</Menu.Item>
+                        <Menu.Item key="3">Music</Menu.Item>
+                        <Menu.Item key="4">Life events</Menu.Item>
                     </SubMenu>
                     <SubMenu key="sub2" icon={ <NotificationOutlined />} title="Posts">
-                        <Menu.Item key="5">option5</Menu.Item>
-                        <Menu.Item key="6">option6</Menu.Item>
-                        <Menu.Item key="7">option7</Menu.Item>
-                        <Menu.Item key="8">option8</Menu.Item>
+                        <Menu.Item key="5">My posts</Menu.Item>
+                        <Menu.Item key="6">Friends posts</Menu.Item>
+                        <Menu.Item key="7">Favorite posts</Menu.Item>
+                        <Menu.Item key="8">Posts for you</Menu.Item>
                     </SubMenu>
                     <SubMenu key="sub3" icon={<LaptopOutlined />} title="Settings">
-                        <Menu.Item key="9">option9</Menu.Item>
-                        <Menu.Item key="10">option10</Menu.Item>
-                        <Menu.Item key="11">option11</Menu.Item>
-                        <Menu.Item key="12">option12</Menu.Item>
+                        <Menu.Item key="9">Privacy</Menu.Item>
+                        <Menu.Item key="10">Dark mode</Menu.Item>
+                        <Menu.Item key="11">Language</Menu.Item>
+                        <Menu.Item key="12">Recent ad activity</Menu.Item>
                     </SubMenu>
                 </Menu>
             </Sider>

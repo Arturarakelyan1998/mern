@@ -1,6 +1,6 @@
 import usePosts from "../../hooks/use-posts";
 import './NewsFeed.css';
-import {Button, Card, Spin} from 'antd';
+import {Card, Spin} from 'antd';
 import {AiOutlineLike} from 'react-icons/ai'
 import {BiComment} from 'react-icons/bi'
 import {RiShareForwardLine} from 'react-icons/ri'
@@ -26,9 +26,9 @@ const NewsFeed = () => {
                         <Card
                             hoverable
                             style={{width: 400, marginBottom: 20 }}
-                            cover={<img src={post.image} alt=""/>}
+                            cover={<img src={post.photo} alt=""/>}
                         >
-                            <Meta title={post.title} description={post.text}/>
+                            <Meta title={post.title} description={post.description}/>
                             <div className='icons'>
                                 <div className='icons-item'>
                                     <AiOutlineLike /> Like
