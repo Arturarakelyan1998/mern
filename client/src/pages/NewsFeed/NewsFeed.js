@@ -1,8 +1,11 @@
 import usePosts from "../../hooks/use-posts";
 import './NewsFeed.css';
+import { Card } from 'antd';
 import {AiOutlineLike} from 'react-icons/ai'
 import {BiComment} from 'react-icons/bi'
 import {RiShareForwardLine} from 'react-icons/ri'
+
+const { Meta } = Card;
 
 const NewsFeed = () => {
 
@@ -14,29 +17,39 @@ const NewsFeed = () => {
         )
     }
 
-    return (
+    console.log(posts, "test")
 
-        <div className="container" >
-           <div className='news'>
-               {posts && posts.map((post) => {
-                   return <div className='news-item' key={post.id}>
-                       <div>{post.title}</div>
-                       <img src={post.image} alt=""/>
-                       <div className='icons'>
-                           <div className='icons-item'>
-                               <AiOutlineLike /> Like
-                           </div>
-                           <div className='icons-item'>
-                               <BiComment /> Comment
-                           </div>
-                           <div className='icons-item'>
-                               <RiShareForwardLine /> Share
-                           </div>
-                       </div>
-                   </div>
-               })}
-           </div>
-        </div>
+    return (
+        <>
+            {posts && posts.map((post) => {
+                return (
+                        <Card
+                            hoverable
+                            style={{width: 400, marginBottom: 20}}
+                            cover={<img src={post.image} alt=""/>}
+                        >
+                            <Meta title={post.title} description={post.text}/>
+                            <div className='icons'>
+                                <div className='icons-item'>
+                                    <AiOutlineLike /> Like
+                                </div>
+                                <div className='icons-item'>
+                                    <BiComment /> Comment
+                                </div>
+                                <div className='icons-item'>
+                                    <RiShareForwardLine /> Share
+                                </div>
+                            </div>
+
+                        </Card>
+
+                )
+            })
+            }
+        </>
+
+
+
 
 
     );
