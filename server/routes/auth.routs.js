@@ -95,7 +95,7 @@ router.post('/create',
                 photo:req.body.photo,
             })
             await post.save()
-            res.redirect('/api/auth/')
+            res.status(201).json({message: 'post created successfully'})
 
 
         } catch (error) {

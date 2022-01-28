@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react'
-import {BrowserRouter, Link, Switch, Route} from 'react-router-dom'
+import {BrowserRouter, Link, Switch, Route, useHistory} from 'react-router-dom'
 import axios from "axios";
 import {RiLockPasswordLine} from 'react-icons/ri';
 import {BiUser} from 'react-icons/bi';
@@ -8,6 +8,7 @@ import {AuthContext} from "../../context/AuthContext";
 
 const AuthPage = () => {
     const [success, setSuccess] = useState('')
+    const history = useHistory();
 
     const [form, setForm] = useState({
         email: '',
@@ -28,6 +29,7 @@ const AuthPage = () => {
             }).then(response =>
                 setSuccess(response.data.message)
             )
+            history.push("/login")
         } catch (error) {
             console.log(error, "Error ")
         }
@@ -42,6 +44,7 @@ const AuthPage = () => {
             }).then(response=>{
                 login(response.data.token, response.data.userId)
             })
+            history.push("/")
         }
         catch(error){
             console.log(error);

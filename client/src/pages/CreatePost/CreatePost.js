@@ -1,10 +1,12 @@
 import { useState} from "react";
 import "./CreatePost.scss";
 import axios from "axios";
+import {useHistory} from "react-router-dom";
 
 
 const CreatePost = () => {
 
+    const history = useHistory();
     const [title,setTitle] = useState('');
     const [description,setDescription] = useState('');
     const [baseImg,setBaseImg] = useState('');
@@ -56,6 +58,8 @@ const CreatePost = () => {
                 }
 
             )
+
+           history.push("/")
         } catch (error) {
             console.log(error, "Error1234654 ")
         }
@@ -78,6 +82,7 @@ const CreatePost = () => {
                 <input type="file"  onChange={(e)=>{uploadImg(e);}}/>
             </label>
             <button onClick={uploadHandler}>Create Post</button>
+
         </div>
     );
 }
