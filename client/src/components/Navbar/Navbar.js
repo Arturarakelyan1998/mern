@@ -36,6 +36,7 @@ export default function Navbar({children}) {
                     <Menu
                         mode="inline"
                         style={{ height: '100%', borderRight: 0 }}
+                        defaultOpenKeys={['sub1']}
                     >
                         <SubMenu key="sub1" icon={<UserOutlined />} title="Profile">
                             <Menu.Item key="1">Friends</Menu.Item>
