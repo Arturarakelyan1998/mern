@@ -2,7 +2,7 @@ import './Profile.scss'
 // import profileImg from './user.png'
 import {useEffect, useState} from "react";
 import axios from "axios";
-import {Avatar, Skeleton} from 'antd';
+import Avatar from "../CreatePost/UploadPhoto/UploadPhoto";
 
 function Profile(){
 
@@ -55,11 +55,10 @@ function Profile(){
     return (
         <div className='profile'>
             <div className='profile-item ant-card-hoverable'>
-                {/*<div className='profile-img'>*/}
-                {/*    /!*<img  src={profileImg} />*!/*/}
-                {/*    /!*<Skeleton.Avatar active={true} size={'Large'}  />*!/*/}
-                {/*</div>*/}
-                <Avatar />
+                <div className='profile-img'>
+                    <Avatar />
+                </div>
+
                 <form className='profile-form'>
                     <label>
                         FirstName
