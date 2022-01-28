@@ -1,12 +1,35 @@
 import './Profile.scss'
 import profileImg from './user.png'
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import axios from "axios";
 
 function Profile(){
 
     const [firstName,setFirstName] = useState('');
     const [lastName,setLastName] = useState('');
     const [email,setEmail] = useState('');
+
+    const data = JSON.parse(window.localStorage.getItem('userData'));
+
+    useEffect(() => {
+        const userData = async () => {
+            try {
+                await axios.get(`/api/user/${data.userId}`, {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(response =>[
+                        setFirstName(response.data.firstname),
+                        setLastName(response.data.lastname),
+                        setEmail(response.data.email),
+                    ]
+                )
+            } catch (error) {
+                console.log(error, "Error ")
+            }
+        }
+        userData()
+    }, [])
 
 
     const onChangeFirstName = (e) => {
