@@ -1,5 +1,4 @@
 import './Profile.scss'
-// import profileImg from './user.png'
 import {useEffect, useState} from "react";
 import axios from "axios";
 import Avatar from "../CreatePost/UploadPhoto/UploadPhoto";

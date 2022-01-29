@@ -4,6 +4,7 @@ import Index from "./pages/MainPage";
 import AuthPage from "./pages/AuthPage/AuthPage";
 import Profile from "./pages/Profile/Profile";
 import CreatePost from "./pages/CreatePost/CreatePost";
+import MyPosts from "./pages/MyPosts/MyPosts";
 
 export const useRoutes = (isLogin)=>{
     if(isLogin){
@@ -17,6 +18,9 @@ export const useRoutes = (isLogin)=>{
                 </Route>
                 <Route path="/createPost">
                     <CreatePost/>
+                </Route>
+                <Route path="/myPosts">
+                    <MyPosts/>
                 </Route>
             </Switch>
         );

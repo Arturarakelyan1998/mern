@@ -45,7 +45,7 @@ export default function Navbar({children}) {
                             <Menu.Item key="4">Life events</Menu.Item>
                         </SubMenu>
                         <SubMenu key="sub2" icon={ <NotificationOutlined />} title="Posts">
-                            <Menu.Item key="5">My posts</Menu.Item>
+                            <Menu.Item key="5"><Link to="/myPosts">My posts</Link></Menu.Item>
                             <Menu.Item key="6">Friends posts</Menu.Item>
                             <Menu.Item key="7">Favorite posts</Menu.Item>
                             <Menu.Item key="8">Posts for you</Menu.Item>
