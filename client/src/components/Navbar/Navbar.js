@@ -32,7 +32,7 @@ export default function Navbar({children}) {
             </Header>
             {
                 isLogin &&
-                <Sider width={200} className="site-layout-background" style={{position: 'fixed', zIndex: 1, top: 65}}>
+                <Sider width={300} className="site-layout-background" style={{position: 'fixed', zIndex: 1, top: 65}}>
                     <Menu
                         mode="inline"
                         style={{ height: '100%', borderRight: 0 }}
