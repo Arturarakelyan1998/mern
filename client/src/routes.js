@@ -5,6 +5,7 @@ import AuthPage from "./pages/AuthPage/AuthPage";
 import Profile from "./pages/Profile/Profile";
 import CreatePost from "./pages/CreatePost/CreatePost";
 import MyPosts from "./pages/MyPosts/MyPosts";
+import PostsForYou from "./pages/PostsForYou/PostsForYou";
 
 export const useRoutes = (isLogin)=>{
     if(isLogin){
@@ -21,6 +22,9 @@ export const useRoutes = (isLogin)=>{
                 </Route>
                 <Route path="/myPosts">
                     <MyPosts/>
+                </Route>
+                <Route path="/postsForYou">
+                    <PostsForYou/>
                 </Route>
             </Switch>
         );

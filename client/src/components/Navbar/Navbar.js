@@ -48,7 +48,7 @@ export default function Navbar({children}) {
                             <Menu.Item key="5"><Link to="/myPosts">My posts</Link></Menu.Item>
                             <Menu.Item key="6">Friends posts</Menu.Item>
                             <Menu.Item key="7">Favorite posts</Menu.Item>
-                            <Menu.Item key="8">Posts for you</Menu.Item>
+                            <Menu.Item key="8"><Link to="/postsForYou">Posts for you</Link></Menu.Item>
                         </SubMenu>
                         <SubMenu key="sub3" icon={<LaptopOutlined />} title="Settings">
                             <Menu.Item key="9">Privacy</Menu.Item>
