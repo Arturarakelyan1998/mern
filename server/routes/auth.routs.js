@@ -89,7 +89,9 @@ router.post('/create',
 
         try {
 
+
             const post = new Post({
+                userId:req.body.userId,
                 title:req.body.title,
                 description:req.body.description,
                 photo:req.body.photo,
@@ -101,9 +103,9 @@ router.post('/create',
         } catch (error) {
             console.log(error);
         }
-
-
     });
+
+
 router.get('/', function (req, res) {
     Post.find({}, null, function (err, posts) {
         if (err) {
@@ -113,6 +115,18 @@ router.get('/', function (req, res) {
         }
     })
 });
+
+router.get('/:id', function (req, res) {
+    const {userId} = req.params;
+    Post.find(userId, null, function (err, posts) {
+        if (err) {
+            res.status(500).send("Something went wrong!");
+        } else {
+            res.json(posts)
+        }
+    })
+});
+
 
 
 router.get('/date', function (req, res) {

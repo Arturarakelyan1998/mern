@@ -2,6 +2,7 @@ import { useState} from "react";
 import "./CreatePost.scss";
 import axios from "axios";
 import {useHistory} from "react-router-dom";
+import {useAuth} from "../../hooks/auth.hook";
 
 
 const CreatePost = () => {
@@ -10,6 +11,7 @@ const CreatePost = () => {
     const [title,setTitle] = useState('');
     const [description,setDescription] = useState('');
     const [baseImg,setBaseImg] = useState('');
+    const {userId}=useAuth()
 
     const onChangeTitle = (e) => {
         setTitle(e.target.value);
@@ -24,7 +26,6 @@ const CreatePost = () => {
         const file=e.target.files[0];
         const base64=await convertBase64(file)
         setBaseImg(base64);
-        // console.log(base64)
     }
     const convertBase64 = (file) => {
         return new Promise((resolve, reject) => {
@@ -41,8 +42,8 @@ const CreatePost = () => {
         })
     }
 
-
     const data= {
+        userId:userId,
         title: title,
         description: description,
         photo:baseImg,
